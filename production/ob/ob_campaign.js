@@ -37,6 +37,17 @@ function add_table(id, db, columns) {
     // scroller: true,
     columns: columns
   });
+
+  // add double click event
+  $('#' + id +' tbody').on('dblclick', 'tr', function () {
+    var data = table.row( this ).data();
+    update_campaign_detail(data[0]);
+  });
+
+  // add one click event
+  $('#' + id +' tbody').on('click', 'tr', function () {
+    $(this).addClass('active').siblings().removeClass('active');
+  });
 }
 
 
@@ -67,58 +78,47 @@ function setAttributes(el, attrs) {
 }
 
 /**
- * Add the campaign's detail info.
- * @param {[type]} id   [description]
- * @param {[type]} uuid [description]
- */
-function add_campaign_detail(id, uuid) {
-  console.log("Fired add_campaign_detail. " + id + ", " + uuid);
+@brief Update campaign detail info
+*/
+function update_campaign_detail(uuid) {
+  console.log("Fired update_campaign_detail. " + uuid);
 
   // get data
   campaign = g_campaigns({uuid: uuid}).first();
 
-  // set uuid
-  div = document.createElement("div");
-  div.setAttribute("class", "form-group");
-  div.appendChild(create_campaign_label("UUID"));
+  // set campaign info
+  document.getElementById("campaign_detail_uuid").value = campaign.uuid;
+  // document.getElementById("campaign_detail_name").setAttribute("value", campaign.name);
+  document.getElementById("campaign_detail_name").value = campaign.name;
+  document.getElementById("campaign_detail_description").value = campaign.detail;
+  document.getElementById("campaign_detail_status").value = campaign.status;
 
-  item = document.createElement("input");
-  setAttributes(item, {"type": "text", "class": "form-control", "readonly": "readonly", "placeholder": campaign.uuid});
+  // related info
+  document.getElementById("campaign_detail_plan").value = campaign.plan;
+  document.getElementById("campaign_detail_destination").value = campaign.destination;
+  document.getElementById("campaign_detail_dlma").value = campaign.dlma;
 
-  // item.setAttribute("type", "text");
-  // item.setAttribute("class", "form-control");
-  // item.setAttribute("readonly", "readonly");
-  // item.setAttribute("placeholder", campaign.uuid);
+  // schedule
+  document.getElementById("campaign_detail_sc_mode").value = campaign.sc_mode;
+  document.getElementById("campaign_detail_sc_time_start").value = campaign.sc_time_start;
+  document.getElementById("campaign_detail_sc_time_end").value = campaign.sc_time_end;
+  document.getElementById("campaign_detail_sc_date_start").value = campaign.sc_date_start;
+  document.getElementById("campaign_detail_sc_date_end").value = campaign.sc_date_end;
+  document.getElementById("campaign_detail_sc_date_list").value = campaign.sc_date_list;
+  document.getElementById("campaign_detail_sc_date_list_except").value = campaign.sc_date_list_except;
+  document.getElementById("campaign_detail_sc_day_list").value = campaign.sc_day_list;
 
-  tmp_div = document.createElement("div");
-  tmp_div.setAttribute("class", "col-md-9 col-sm-9 col-xs-12");
-  tmp_div.appendChild(item);
+  // other info
+  document.getElementById("campaign_detail_variables").value = campaign.variables;
+  document.getElementById("campaign_detail_next_campaign").value = campaign.next_campaign;
+  document.getElementById("campaign_detail_in_use").value = campaign.in_use;
 
-  div.appendChild(tmp_div);
+  // timestamp
+  document.getElementById("campaign_detail_tm_create").value = campaign.tm_create;
+  document.getElementById("campaign_detail_tm_update").value = campaign.tm_update;
+  document.getElementById("campaign_detail_tm_delete").value = campaign.tm_delete;
 
-  form = document.createElement("form");
-  form.setAttribute("class", "form-horizontal form-label-left");
-  form.appendChild(div)
-
-  document.getElementById(id).appendChild(form);
-
-                      // <div class="form-group">
-                      //   <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID</label>
-                      //   <div class="col-md-9 col-sm-9 col-xs-12">
-                      //     <input type="text" class="form-control" disabled="disabled" placeholder="Default Input">
-                      //   </div>
-                      // </div>
-                      
-
-
-
-  // name
-  // description
-  // status
-  // schedule mode
-  // 
 }
-
 
 // run!
 $(document).ready(function() {
@@ -132,36 +132,7 @@ $(document).ready(function() {
   ];
   add_table("campaign_list_table", g_campaigns, campaign_list_columns);
 
-
-  // add detail campaigns info
-  add_campaign_detail("campaign_detail_info", "2d954c66-8943-4798-ad30-0afe84b0449e");
-
-  // add all campaigns info
-  campaign_columns = [
-    { id: "uuid", title: "Uuid"},
-
-    { id: "name", title: "Name" },
-    { id: "detail", title: "Desc" },
-    { id: "status", title: "Status" },
-
-    { id: "plan", title: "Plan" }, 
-    { id: "dest", title: "Destination" },
-    { id: "dlma", title: "Dial list master" }, 
-
-    { id: "variables", title: "Variables" },
-
-    { id: "next_campaign", title: "Next campaign" },
-
-    { id: "sc_mode", title: "Schedule mode" },
-    { id: "sc_time_start", title: "Scedule time start" },
-    { id: "sc_time_end", title: "Schedule time end" }, 
-    { id: "sc_date_start", title: "Schedule date start" },
-    { id: "sc_date_end", title: "Schedule date end" },
-    { id: "sc_date_list", title: "Schedule date list" },
-    { id: "sc_date_list_except", title: "Schedule list except" },
-    { id: "sc_day_list", title: "Schedule day list"},
-  ];
-  add_table("campaign_detail_table", g_campaigns, campaign_columns);
+  // update_campaign_detail(null);
 
   console.log('ob_campaign.js');
 });
