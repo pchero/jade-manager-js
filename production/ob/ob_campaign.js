@@ -88,14 +88,13 @@ function update_campaign_detail(uuid) {
 
   // set campaign info
   document.getElementById("campaign_detail_uuid").value = campaign.uuid;
-  // document.getElementById("campaign_detail_name").setAttribute("value", campaign.name);
   document.getElementById("campaign_detail_name").value = campaign.name;
   document.getElementById("campaign_detail_description").value = campaign.detail;
   document.getElementById("campaign_detail_status").value = campaign.status;
 
   // related info
   document.getElementById("campaign_detail_plan").value = campaign.plan;
-  document.getElementById("campaign_detail_destination").value = campaign.destination;
+  document.getElementById("campaign_detail_destination").value = campaign.dest;
   document.getElementById("campaign_detail_dlma").value = campaign.dlma;
 
   // schedule
@@ -109,7 +108,7 @@ function update_campaign_detail(uuid) {
   document.getElementById("campaign_detail_sc_day_list").value = campaign.sc_day_list;
 
   // other info
-  document.getElementById("campaign_detail_variables").value = campaign.variables;
+  document.getElementById("campaign_detail_variables").value = JSON.stringify(campaign.variables);
   document.getElementById("campaign_detail_next_campaign").value = campaign.next_campaign;
   document.getElementById("campaign_detail_in_use").value = campaign.in_use;
 
@@ -120,6 +119,160 @@ function update_campaign_detail(uuid) {
 
 }
 
+function get_campaign_detail_from_form() {
+  console.log("Fired get_campaign_detail_from_form.");
+
+  data = {};
+
+  data.uuid = document.getElementById("campaign_detail_uuid").value;
+  data.name = document.getElementById("campaign_detail_name").value;
+  data.detail = document.getElementById("campaign_detail_description").value;
+  data.status = document.getElementById("campaign_detail_status").value;
+
+  // related info
+  data.plan = document.getElementById("campaign_detail_plan").value;
+  data.dest = document.getElementById("campaign_detail_destination").value;
+  data.dlma = document.getElementById("campaign_detail_dlma").value;
+
+  // schedule
+  data.sc_mode = document.getElementById("campaign_detail_sc_mode").value;
+  data.sc_time_start = document.getElementById("campaign_detail_sc_time_start").value;
+  data.sc_time_end = document.getElementById("campaign_detail_sc_time_end").value = campaign.sc_time_end;
+  data.sc_date_start = document.getElementById("campaign_detail_sc_date_start").value = campaign.sc_date_start;
+  data.sc_date_end = document.getElementById("campaign_detail_sc_date_end").value = campaign.sc_date_end;
+  data.sc_date_list = document.getElementById("campaign_detail_sc_date_list").value = campaign.sc_date_list;
+  data.sc_date_list_except = document.getElementById("campaign_detail_sc_date_list_except").value = campaign.sc_date_list_except;
+  data.sc_day_list = document.getElementById("campaign_detail_sc_day_list").value = campaign.sc_day_list;
+
+  // // other info
+  console.log("variables: " + document.getElementById("campaign_detail_variables").value);
+  data.variables = JSON.parse(document.getElementById("campaign_detail_variables").value);
+  data.next_campaign = document.getElementById("campaign_detail_next_campaign").value;
+  data.in_use = document.getElementById("campaign_detail_in_use").value;
+
+  // timestamp
+  data.tm_create = document.getElementById("campaign_detail_tm_create").value;
+  data.tm_update = document.getElementById("campaign_detail_tm_update").value;
+  data.tm_delete = document.getElementById("campaign_detail_tm_delete").value;
+
+  return data;
+}
+
+function bt_create_campaign_detail() {
+  console.log("Fired create_campaign_detail.");
+
+  // get campaign info from the form
+  data = get_campaign_detail_from_form();
+
+  // delete unnecessary items
+  delete data.uuid;
+  delete data.in_use;
+  delete data.tm_create;
+  delete data.tm_update;
+  delete data.tm_delete;
+
+  // send request 
+  console.log(data);
+  send_create_campaign_request(data);
+}
+
+function bt_update_campaign_detail() {
+  console.log("Fired update_campaign_detail.");
+
+  // get campaign info from the form
+  data = get_campaign_detail_from_form();
+
+  // delete unnecessary items
+  delete data.in_use;
+  delete data.tm_create;
+  delete data.tm_update;
+  delete data.tm_delete;
+
+  console.log(data);
+
+  send_update_campaign_request(data);
+}
+
+function bt_delete_campaign_detail() {
+  console.log("Fired update_campaign_detail.");
+
+  // get campaign info from the form
+  data = get_campaign_detail_from_form();
+
+  // delete unnecessary items
+  delete data.in_use;
+  delete data.tm_create;
+  delete data.tm_update;
+  delete data.tm_delete;
+
+  console.log(data);
+
+  send_delete_campaign_request(data);
+}
+
+/**
+ * Send request for campaign create
+ * @param  {[type]} data [description]
+ * @return {[type]}      [description]
+ */
+function send_create_campaign_request(data) {
+  console.log("Fired send_create_campaign_request.")
+
+  url = domain + "/ob/campaigns";
+  console.log("Query url info. url[" + url + "]");
+
+  send_request(url, "POST", data);
+}
+
+/**
+ * Send request for campaign update
+ * @param  {[type]} data [description]
+ * @return {[type]}      [description]
+ */
+function send_update_campaign_request(data) {
+  console.log("Fired send_update_campaign_request.")
+
+  url = domain + "/ob/campaigns/" + data.uuid;
+  console.log("Query url info. url[" + url + "]");
+
+  send_request(url, "PUT", data);
+}
+
+/**
+ * Send request for campaign delete
+ * @param  {[type]} data [description]
+ * @return {[type]}      [description]
+ */
+function send_delete_campaign_request(data) {
+  console.log("Fired send_delete_campaign_request.")
+
+  url = domain + "/ob/campaigns/" + data.uuid;
+  console.log("Query url info. url[" + url + "]");
+
+  send_request(url, "DELETE", data);
+}
+
+
+/**
+ * Send request
+ * @param  {[type]} url    [description]
+ * @param  {[type]} method [description]
+ * @param  {[type]} data   [description]
+ * @return {[type]}        [description]
+ */
+function send_request(url, method, data) {
+  console.log("Fired send_request.");
+
+  resp = jQuery.ajax({
+      type: method,
+      url: url,
+      cache: false,
+      dataType: "application/json",
+      data: JSON.stringify(data)
+    });
+
+}
+
 // run!
 $(document).ready(function() {
 
@@ -127,12 +280,10 @@ $(document).ready(function() {
   campaign_list_columns = [
     { id: "uuid", title: "Uuid"},
     { id: "name", title: "Name" },
-    { id: "detail", title: "Desc" },
+    { id: "detail", title: "Description" },
     { id: "status", title: "Status" }
   ];
   add_table("campaign_list_table", g_campaigns, campaign_list_columns);
-
-  // update_campaign_detail(null);
 
   console.log('ob_campaign.js');
 });
