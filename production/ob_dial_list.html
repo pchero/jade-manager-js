@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Jade | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -91,11 +91,11 @@
         <!-- page content -->
         <div class="right_col" role="main">
 
-          <!-- show all list of destinations -->
+          <!-- show all list of dlmas -->
           <div class="row">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Destination list info <small>Show the list of all destinations.</small></h2>
+                <h2>Dial list master info <small>Show the list of all dial list masters.</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -114,16 +114,47 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <table id="destination_list_table" class="table table-striped table-bordered table-condensed"></table>
+                <table id="dlma_list_table" class="table table-striped table-bordered table-condensed"></table>
               </div>
             </div>
           </div>
 
-          <!-- Show detail destination info -->
+
+          <!-- show all list of dial list -->
           <div class="row">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Destination detail info <small>Show the specified destination's detail info.</small></h2>
+                <h2>Dial list info <small>Show the list of all dial list.</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <table id="dl_list_table" class="table table-striped table-bordered table-condensed"></table>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- Show detail dial list info -->
+          <div class="row">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Dial list detail info <small>Show the specified dial list detail info.</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -150,72 +181,162 @@
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_uuid">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dlma_detail_uuid">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Name</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_name">
+                        <input type="text" class="form-control" placeholder="" id="dlma_detail_name">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_description">
+                        <input type="text" class="form-control" placeholder="" id="dlma_detail_description">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_type">
+                        <input type="text" class="form-control" placeholder="" id="dlma_detail_description">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Application</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial list master uuid</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_application">
+                        <input type="text" class="form-control" placeholder="" id="dlma_detail_description">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dlma_detail_description">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 1</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_1">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">data</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 2</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_data">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_2">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">context</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 3</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_context">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_3">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">exten</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 4</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_exten">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_4">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">priority</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 5</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_priority">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_5">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Variables</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 6</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_variables">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_6">
                       </div>
                     </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 7</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_7">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 8</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_8">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 1</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_1">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 2</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_2">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 3</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_3">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 4</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_4">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 5</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_5">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 6</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_6">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 7</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_7">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 8</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_8">
+                      </div>
+                    </div>
+
 
 
                   </form>
@@ -227,31 +348,56 @@
                   <form class="form-horizontal form-label-left">
 
 
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing campaign uuid</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_campaign_uuid">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing plan uuid</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_campaign_uuid">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing campaign uuid</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_campaign_uuid">
+                      </div>
+                    </div>
+
+
+
+
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">In use</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_in_use">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dlma_detail_in_use">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Time create</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_tm_create">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dlma_detail_tm_create">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Time update</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_tm_update">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dlma_detail_tm_update">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Time delete</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_tm_delete">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dlma_detail_tm_delete">
                       </div>
                     </div>
 
@@ -262,13 +408,15 @@
               </div> <!-- <div class="x_content"> -->
 
               <div align="right">
-                <button type="button" id="campaign_detail_button_create" onclick="bt_create_destination_detail()" class="btn btn-primary btn-lg">Create</button>
-                <button type="button" id="campaign_detail_button_update" onclick="bt_update_destination_detail()" class="btn btn-success btn-lg">Update</button>
-                <button type="button" id="campaign_detail_button_delete" onclick="bt_delete_destination_detail()" class="btn btn-danger btn-lg">Delete</button>
+                <button type="button" id="campaign_detail_button_create" onclick="bt_create_dl_detail()" class="btn btn-primary btn-lg">Create</button>
+                <button type="button" id="campaign_detail_button_update" onclick="bt_update_dl_detail()" class="btn btn-success btn-lg">Update</button>
+                <button type="button" id="campaign_detail_button_delete" onclick="bt_delete_dl_detail()" class="btn btn-danger btn-lg">Delete</button>
               </div>
 
             </div>
           </div> <!-- row -->
+
+
 
         </div>
         <!-- /page content -->
@@ -346,7 +494,8 @@
     <script src="./js/menu/side_bar.js"></script>
 
     <!-- -->
-    <script src="./js/ob/ob_destination.js"></script>
+    <script src="./js/ob/ob_dial_list.js"></script>
+
 
   </body>
 </html>

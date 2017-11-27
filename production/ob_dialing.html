@@ -91,11 +91,11 @@
         <!-- page content -->
         <div class="right_col" role="main">
 
-          <!-- show all list of destinations -->
+          <!-- show all list of dialings -->
           <div class="row">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Destination list info <small>Show the list of all destinations.</small></h2>
+                <h2>Dialing info <small>Show the list of all dialing.</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -114,16 +114,16 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <table id="destination_list_table" class="table table-striped table-bordered table-condensed"></table>
+                <table id="dialing_list_table" class="table table-striped table-bordered table-condensed"></table>
               </div>
             </div>
           </div>
 
-          <!-- Show detail destination info -->
+          <!-- Show detail dialing info -->
           <div class="row">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Destination detail info <small>Show the specified destination's detail info.</small></h2>
+                <h2>Dialing detail info <small>Show the specified dialing's detail info.</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -150,72 +150,121 @@
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_uuid">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_uuid">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Name</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Action ID</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_name">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_action_id">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Channel</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_description">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_channel">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_type">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_status">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial channel</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dial_channel">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Application</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial address</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_application">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dial_address">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Application name</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_application_name">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">data</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Application data</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_data">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_application_data">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialplan context</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dialplan_context">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">context</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialplan exten</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_context">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dialplan_exten">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">exten</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialplan priority</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_exten">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dialplan_priority">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial type</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dial_type">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">priority</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial timeout</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_priority">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dial_timeout">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Variables</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial index</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="destination_detail_variables">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dial_index">
                       </div>
                     </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial try count</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dial_try_count">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial variables</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_dial_variables">
+                      </div>
+                    </div>
+
 
 
                   </form>
@@ -227,31 +276,144 @@
                   <form class="form-horizontal form-label-left">
 
 
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Result dial</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_res_dial">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Result dial detail</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_res_dial_detail">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Result hangup</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_res_hangup">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Result hangup detail</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_res_hangup_detail">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID campaign</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_uuid_campaign">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID destination</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_uuid_destination">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID plan</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_uuid_plan">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID dial list master</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_uuid_dlma">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID dial list</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_uuid_dl">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Info campaign</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_info_campaign">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Info destination</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_info_destination">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Info plan</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_info_plan">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Info dial list master</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_info_dlma">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">info dial list</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_info_dl">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Info dialing</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_info_dialing">
+                      </div>
+                    </div>
+
+
+
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">In use</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_in_use">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_in_use">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Time create</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_tm_create">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dialing_detail_tm_create">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Time update</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_tm_update">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dlma_detail_tm_update">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Time delete</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="destination_detail_tm_delete">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dlma_detail_tm_delete">
                       </div>
                     </div>
 
@@ -262,9 +424,9 @@
               </div> <!-- <div class="x_content"> -->
 
               <div align="right">
-                <button type="button" id="campaign_detail_button_create" onclick="bt_create_destination_detail()" class="btn btn-primary btn-lg">Create</button>
-                <button type="button" id="campaign_detail_button_update" onclick="bt_update_destination_detail()" class="btn btn-success btn-lg">Update</button>
-                <button type="button" id="campaign_detail_button_delete" onclick="bt_delete_destination_detail()" class="btn btn-danger btn-lg">Delete</button>
+                <!-- <button type="button" id="campaign_detail_button_create" onclick="bt_create_dialing_detail()" class="btn btn-primary btn-lg">Create</button> -->
+                <!-- <button type="button" id="campaign_detail_button_update" onclick="bt_update_dialing_detail()" class="btn btn-success btn-lg">Update</button> -->
+                <button type="button" id="campaign_detail_button_delete" onclick="bt_delete_dialing_detail()" class="btn btn-danger btn-lg">Delete</button>
               </div>
 
             </div>
@@ -346,7 +508,7 @@
     <script src="./js/menu/side_bar.js"></script>
 
     <!-- -->
-    <script src="./js/ob/ob_destination.js"></script>
+    <script src="./js/ob/ob_dlma.js"></script>
 
   </body>
 </html>
