@@ -1,6 +1,7 @@
 var g_dls = TAFFY();
 
-function init_db() {
+function init_g_dls() {
+  delete g_dls;
   g_dls = TAFFY();
 }
 
@@ -14,7 +15,8 @@ function get_dial_list(dlma_uuid, count) {
   url = domain + "/ob/dls/";
   console.log("Query url info. url[" + url + "]");
 
-  init_db();
+  // init dial list db.
+  init_g_dls();
 
   // send request
   data = {"dlma_uuid": dlma_uuid, "count": count};
@@ -31,59 +33,18 @@ function get_dial_list(dlma_uuid, count) {
   }
 }
 
-/**
-@brief Add the table to the given id.
-*/
-function add_table(id, db, columns, func) {
-  console.log("Fired add_table. " + id + ", " + db + ", " + columns);
+function dl_list_table_double_click(row) {
+  uuid = row.cells.item(0).innerText;
 
-  // get columns keys
-  keys = [];
-  for(var i = 0; i < columns.length; i++) {
-    keys.push(columns[i].id);
-  }
-  console.log("Ids. " + keys);
-
-  // make data list
-  res = [];
-  console.log("length: " + db().get().length);
-  for(var i = 0; i < db().get().length; i++) {
-    data = db().get()[i];
-    tmp = [];
-    console.log("test  data. " + data + data["uuid"]);
-
-    for(var j = 0; j < keys.length; j++) {
-      tmp.push(data[keys[j]]);
-    }
-    res.push(tmp);
-  }
-  console.log("result" + res);
-
-  // create table and add it.
-  table = $('#' + id).DataTable({
-    data: res,
-    deferRender: true,
-    // colReorder: true,
-    // scrollY: 380,
-    // scrollCollapse: true,
-    // scroller: true,
-    columns: columns
-  });
-
-  // add double click event
-  $('#' + id +' tbody').on('dblclick', 'tr', function () {
-    var data = table.row( this ).data();
-    console.log("Double click data. " + data);
-
-    // register the function
-    func(data[0]);
-  });
-
-  // add one click event
-  $('#' + id +' tbody').on('click', 'tr', function () {
-    $(this).addClass('active').siblings().removeClass('active');
-  });
+  update_dl_detail(uuid);
 }
+
+function dlma_list_table_double_click(row) {
+  uuid = row.cells.item(0).innerText;
+
+  update_dl_list(uuid);
+}
+
 
 /**
 @brief Update dial list detail info
@@ -157,47 +118,60 @@ function update_dl_detail(uuid) {
 function update_dl_list(uuid) {
   console.log("Fired update_dl_list. " + uuid);
 
-  // make clean
-  $("dl_list_table").empty();
-
   // get dls
   get_dial_list(uuid, 1000);
 
-  // $("dl_list_table").DataTable().ajax.reload();
-
+  update_table_dl_list();
 }
 
+function update_table_dl_list() {
+  console.log("Fired update_table_dl_list.");
+
+  // update
+  table_update("dl_list_table", g_dls);
+}
+
+function update_table_dlma_list() {
+  console.log("Fired update_table_dlma_list.");
+
+  table_update("dlma_list_table", g_dlmas);
+}
+
+/**
+@brief Create dlma list table.
+*/
+function create_table_dlma_list() {
+  console.log("Fired create_table_dlma_list.");
+
+  // create table
+  dlma_list_columns = [
+    { id: "uuid", data: "uuid", title: "Uuid"},
+    { id: "name", data: "name", title: "Name" },
+    { id: "detail", data: "detail", title: "Description" },
+    { id: "dl_table", data: "dl_table", title: "Dial list table" }
+  ];
+  table_create("dlma_list_table", dlma_list_columns, dlma_list_table_double_click);
+}
+
+/**
+@brief Create dl list table.
+*/
 function create_table_dl_list() {
-  // add all dl list
-  dl_list_columns = [
-    { id: "uuid", title: "Uuid"},
-    { id: "name", title: "Name" },
-    { id: "detail", title: "Description" },
-    { id: "status", title: "Status" },
-    { id: "dlma_uuid", title: "Dial list master uuid"}
-  ];
-  add_table("dl_list_table", g_dls, dl_list_columns, update_dl_detail);
-}
+  console.log("Fired create_table_dl_list.");
 
-function update_dl_list_org(uuid) {
-  console.log("Fired update_dl_list. " + uuid);
-
-  // get dls
-  get_dial_list(uuid, 1000);
 
   // add all dl list
   dl_list_columns = [
-    { id: "uuid", title: "Uuid"},
-    { id: "name", title: "Name" },
-    { id: "detail", title: "Description" },
-    { id: "status", title: "Status" },
-    { id: "dlma_uuid", title: "Dial list master uuid"}
+    { id: "uuid", data: "uuid", title: "Uuid"},
+    { id: "name", data: "name", title: "Name" },
+    { id: "detail", data: "detail", title: "Description" },
+    { id: "status", data: "status", title: "Status" },
+    { id: "dlma_uuid", data: "dlma_uuid", title: "Dial list master uuid"}
   ];
-  add_table("dl_list_table", g_dls, dl_list_columns, update_dl_detail);
+  table_create("dl_list_table", dl_list_columns, dl_list_table_double_click);
+
+  // add_table("dl_list_table", g_dls, dl_list_columns, update_dl_detail);
 }
-
-
-
 
 function get_dl_detail_from_form() {
   console.log("Fired get_dl_detail_from_form.");
@@ -359,51 +333,16 @@ function send_delete_dl_request(data) {
   send_request(url, "DELETE", data);
 }
 
-
-/**
- * Send request
- * @param  {[type]} url    [description]
- * @param  {[type]} method [description]
- * @param  {[type]} data   [description]
- * @return {[type]}        [description]
- */
-function send_request(url, method, data, async_flg=true) {
-  console.log("Fired send_request.");
-
-  // parsing the send data
-  if(method == "GET") {
-    send_data = data;
-  }
-  else {
-    send_data = JSON.stringify(data);
-  }
-
-  // send request
-  resp = jQuery.ajax({
-      type: method,
-      url: url,
-      cache: false,
-      async: async_flg,
-      dataType: "application/json",
-      data: send_data
-    });
-  return resp.responseText;
-}
-
 // run!
 $(document).ready(function() {
 
+  // create tables
+  create_table_dlma_list();
   create_table_dl_list();
 
-  // add all dlma list
-  dlma_list_columns = [
-    { id: "uuid", title: "Uuid"},
-    { id: "name", title: "Name" },
-    { id: "detail", title: "Description" },
-    { id: "dl_table", title: "Dial list table" }
-  ];
-  add_table("dlma_list_table", g_dlmas, dlma_list_columns, update_dl_list);
-
+  // update tables
+  update_table_dlma_list();
+  update_table_dl_list();
 
   console.log('ob_dial_list.js');
 });
