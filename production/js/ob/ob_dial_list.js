@@ -336,6 +336,8 @@ function send_delete_dl_request(data) {
 // run!
 $(document).ready(function() {
 
+  get_all_dlmas_init();
+
   // create tables
   create_table_dlma_list();
   create_table_dl_list();

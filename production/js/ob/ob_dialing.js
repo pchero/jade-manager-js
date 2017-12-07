@@ -222,6 +222,8 @@ function send_request(url, method, data) {
 
 // run!
 $(document).ready(function() {
+  // get all dialing info
+  get_all_dialings_init();
 
   // add all dialing list
   dialing_list_columns = [

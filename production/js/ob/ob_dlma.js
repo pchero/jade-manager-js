@@ -223,6 +223,9 @@ function send_request(url, method, data) {
 // run!
 $(document).ready(function() {
 
+  // get all dlma data
+  get_all_dlmas_init();
+
   // add all dlma list
   dlma_list_columns = [
     { id: "uuid", title: "Uuid"},

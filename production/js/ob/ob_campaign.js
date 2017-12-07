@@ -276,6 +276,9 @@ function send_request(url, method, data) {
 // run!
 $(document).ready(function() {
 
+  // get all campaign info
+  get_all_campaigns_init();
+
   // add all campaign list
   campaign_list_columns = [
     { id: "uuid", title: "Uuid"},

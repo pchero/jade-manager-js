@@ -280,6 +280,9 @@ function send_request(url, method, data) {
 // run!
 $(document).ready(function() {
 
+  // get all plan info
+  get_all_plans_init();
+
   // add all plan list
   plan_list_columns = [
     { id: "uuid", title: "Uuid"},

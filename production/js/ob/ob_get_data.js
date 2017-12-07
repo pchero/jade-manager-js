@@ -297,19 +297,3 @@ function get_all_dialings() {
     }
   });
 }
-
-
-get_all_campaigns_init();
-// setInterval(get_all_campaigns, 3000);
-
-get_all_plans_init();
-// setInterval(get_all_plans, 3000);
-
-get_all_dlmas_init();
-// setInterval(get_all_dlmas, 3000);
-
-get_all_destinations_init();
-// setInterval(get_all_destinations, 3000);
-
-get_all_dialings_init();
-// setInterval(get_all_dialings, 3000);

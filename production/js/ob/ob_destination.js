@@ -232,6 +232,9 @@ function send_request(url, method, data) {
 // run!
 $(document).ready(function() {
 
+  // get all destination info
+  get_all_destinations_init();
+  
   // add all destination list
   destination_list_columns = [
     { id: "uuid", title: "Uuid"},
