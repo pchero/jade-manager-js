@@ -34,6 +34,7 @@ document.write('\
                   <li><a><i class="fa fa-music"></i> Voicemail <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a href="vm_user.html">User</a></li>\
+                      <li><a href="vm_message.html">Message</a></li>\
                     </ul>\
                   </li>\
 \

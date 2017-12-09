@@ -30,6 +30,40 @@ function send_request(url, method, data, async_flg=true) {
   return resp.responseText;
 }
 
+
+function  send_request_download(url, method, data, async_flg=true, filename="temp") {
+
+  console.log("Fired send_request_download.");
+
+  // parsing the send data
+  if(method == "GET") {
+    send_data = data;
+  }
+  else {
+    send_data = JSON.stringify(data);
+  }
+
+  // send request
+  jQuery.ajax({
+      url: url,
+      type: method,
+      data: send_data,
+      xhrFields: {
+          responseType: 'blob'
+      },
+      success: function(data, status, xhr) {
+        var a = document.createElement('a');
+        var tmp_url = window.URL.createObjectURL(data);
+        a.href = tmp_url;
+        a.download = filename;
+        a.click();
+        window.URL.revokeObjectURL(tmp_url);
+      }
+  });
+
+}
+
+
 /**
 @brief Update the table
 */

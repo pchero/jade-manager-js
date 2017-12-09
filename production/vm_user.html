@@ -10,27 +10,20 @@
 
         <!-- side bar -->
         <script src="js/common/side_bar.js"></script>
+        <!-- /side bar -->
 
         <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
-            </nav>
-          </div>
-        </div>
+        <script src="js/common/top_nav.js"></script>
         <!-- /top navigation -->
 
         <!-- page content -->
         <div class="right_col" role="main">
 
-          <!-- show all list of dlmas -->
+          <!-- show all list of users -->
           <div class="row">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Dial list master info <small>Show the list of all dial list masters.</small></h2>
+                <h2>Voicemail user <small>Show the list of all voicemail users.</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -49,47 +42,17 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <table id="dlma_list_table" class="table table-striped table-bordered table-condensed"></table>
+                <table id="user_list_table" class="table table-striped table-bordered table-condensed"></table>
               </div>
             </div>
           </div>
 
 
-          <!-- show all list of dial list -->
+          <!-- Show detail voicemail user info -->
           <div class="row">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Dial list info <small>Show the list of all dial list.</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <table id="dl_list_table" class="table table-striped table-bordered table-condensed"></table>
-              </div>
-            </div>
-          </div>
-
-
-
-          <!-- Show detail dial list info -->
-          <div class="row">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Dial list detail info <small>Show the specified dial list detail info.</small></h2>
+                <h2>Voicemail user detail info <small>Show the specified voicemail user detail info.</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -113,156 +76,134 @@
                   <!-- <p class="lead" align="center">Basic info</p> -->
                   <form class="form-horizontal form-label-left">
 
+
+
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Context</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dl_detail_uuid">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_context">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Name</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Mailbox</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_name">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_mailbox">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Full name</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_description">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_full_name">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_status">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_email">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial list master uuid</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Pager</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_dlma_uuid">
-                      </div>
-                    </div>
-
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_email">
-                      </div>
-                    </div>
-
-
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 1</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_1">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 2</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_2">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 3</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_3">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 4</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_4">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 5</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_5">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 6</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_6">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 7</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_7">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Number 8</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_number_8">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_pager">
                       </div>
                     </div>
 
 
 
 
-                    <!-- <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing campaign uuid</label>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Server email</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_camp_uuid">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_server_email">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing plan uuid</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Mail command</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_plan_uuid">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_mail_command">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing uuid</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">From string</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_uuid">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_from_string">
                       </div>
-                    </div> -->
-
+                    </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Reserv target</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Attach message</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_resv_target">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_attach_message">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Attachment format </label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_attachment_format">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Delete message</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_delete_message">
                       </div>
                     </div>
 
 
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">UKey</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Call operator</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_ukey">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_call_operator">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Callback</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_callback">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Can review</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_can_review">
                       </div>
                     </div>
 
 
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Variables</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialout</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_variables">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_dialout">
                       </div>
                     </div>
+                    
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Exit context</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_exit_context">
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Language</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_language">
+                      </div>
+                    </div>
+
 
 
 
@@ -275,161 +216,110 @@
 
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing campaign uuid</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max message count</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_camp_uuid">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_max_message_count">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing plan uuid</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max message length</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_plan_uuid">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_max_message_length">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dialing uuid</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">New message count</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_dialing_uuid">
-                      </div>
-                    </div>
-
-
-
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Result dial</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_res_dial">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_new_message_count">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Result dial detail</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Old message count</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_res_dial_detail">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Result hangup</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_res_hangup">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Result hangup detail</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_res_hangup_detail">
-                      </div>
-                    </div>
-
-
-
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 1</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_1">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 2</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_2">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 3</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_3">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 4</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_4">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 5</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_5">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 6</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_6">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 7</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_7">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Try count 8</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_try_count_8">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_old_message_count">
                       </div>
                     </div>
 
 
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Time last dial</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">IMAP server</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_tm_last_dial">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_imap_server">
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">IMAP port</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_imap_port">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Time last hangup</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">IMAP user</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="dl_detail_tm_last_hangup">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_imap_user">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">IMAP flag</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_imap_flag">
                       </div>
                     </div>
 
 
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">In use</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Say call id</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dl_detail_in_use">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_say_call_id">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Time create</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Say duration minimum</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dl_detail_tm_create">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_say_duration_minimum">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Say envelope</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_say_envelope">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Timezone</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_timezone">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Volume gain</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_volume_gain">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Time update</label>
                       <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dl_detail_tm_update">
+                        <input type="text" class="form-control" placeholder="" id="user_detail_time_update">
                       </div>
                     </div>
 
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Time delete</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="dl_detail_tm_delete">
-                      </div>
-                    </div>
+
 
                   </form>
 
@@ -438,9 +328,9 @@
               </div> <!-- <div class="x_content"> -->
 
               <div align="right">
-                <button type="button" id="dl_detail_button_create" onclick="bt_create_dl_detail()" class="btn btn-primary btn-lg">Create</button>
+<!--                 <button type="button" id="dl_detail_button_create" onclick="bt_create_dl_detail()" class="btn btn-primary btn-lg">Create</button>
                 <button type="button" id="dl_detail_button_update" onclick="bt_update_dl_detail()" class="btn btn-success btn-lg">Update</button>
-                <button type="button" id="dl_detail_button_delete" onclick="bt_delete_dl_detail()" class="btn btn-danger btn-lg">Delete</button>
+                <button type="button" id="dl_detail_button_delete" onclick="bt_delete_dl_detail()" class="btn btn-danger btn-lg">Delete</button> -->
               </div>
 
             </div>
@@ -451,81 +341,19 @@
         </div>
         <!-- /page content -->
 
+
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Jade - Asterisk based call center solution.
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <script src="js/common/footer.js"></script>
         <!-- /footer content -->
+
       </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- body libs -->
+    <script src="js/common/body_libs.js"></script>
+    <!-- /body libs -->
 
-    <!-- Datatables -->
-    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
-
-    <!-- common -->
-    <script src="./js/common/data_handler.js"></script>
-    <script src="./js/menu/side_bar.js"></script>
-
-    <!-- -->
-    <script src="./js/ob/ob_dial_list.js"></script>
+    <script src="js/voicemail/vm_user.js"></script>
 
 
   </body>
