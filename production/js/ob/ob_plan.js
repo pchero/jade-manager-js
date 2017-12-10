@@ -67,6 +67,14 @@ function setAttributes(el, attrs) {
   }
 }
 
+function plan_list_table_double_click(row) {
+  console.log("Fired plan_list_table_double_click.");
+
+  message_id = row.cells.item(0).innerText;
+
+  update_plan_detail(message_id);
+}
+
 /**
 @brief Update plan detail info
 */
@@ -74,7 +82,7 @@ function update_plan_detail(uuid) {
   console.log("Fired update_plan_detail. " + uuid);
 
   // get data
-  data = g_plans({uuid: uuid}).first();
+  data = g_ob_plans({uuid: uuid}).first();
 
   // set basic info
   document.getElementById("plan_detail_uuid").value = data.uuid;
@@ -256,41 +264,20 @@ function send_delete_plan_request(data) {
   send_request(url, "DELETE", data);
 }
 
-
-/**
- * Send request
- * @param  {[type]} url    [description]
- * @param  {[type]} method [description]
- * @param  {[type]} data   [description]
- * @return {[type]}        [description]
- */
-function send_request(url, method, data) {
-  console.log("Fired send_request.");
-
-  resp = jQuery.ajax({
-      type: method,
-      url: url,
-      cache: false,
-      dataType: "application/json",
-      data: JSON.stringify(data)
-    });
-
-}
-
 // run!
 $(document).ready(function() {
 
-  // get all plan info
-  get_all_plans_init();
 
   // add all plan list
   plan_list_columns = [
-    { id: "uuid", title: "Uuid"},
-    { id: "name", title: "Name" },
-    { id: "detail", title: "Description" },
-    { id: "dial_mode", title: "Dial mode" }
+    { id: "uuid", data: "uuid", title: "Uuid"},
+    { id: "name", data: "name", title: "Name" },
+    { id: "detail", data: "detail", title: "Description" },
+    { id: "dial_mode", data: "dial_mode", title: "Dial mode" }
   ];
-  add_table("plan_list_table", g_plans, plan_list_columns);
+
+  table_create("plan_list_table", plan_list_columns, plan_list_table_double_click);
+  table_update("plan_list_table", g_ob_plans);
 
   console.log('ob_plan.js');
 });

@@ -59,7 +59,7 @@ function update_dialing_detail(uuid) {
   console.log("Fired update_dialing_detail. " + uuid);
 
   // get data
-  data = g_dialings({uuid: uuid}).first();
+  data = g_ob_dialings({uuid: uuid}).first();
 
   // set basic info
   document.getElementById("dialing_detail_uuid").value = data.uuid;
@@ -199,40 +199,18 @@ function send_delete_dialing_request(data) {
   send_request(url, "DELETE", data);
 }
 
-
-/**
- * Send request
- * @param  {[type]} url    [description]
- * @param  {[type]} method [description]
- * @param  {[type]} data   [description]
- * @return {[type]}        [description]
- */
-function send_request(url, method, data) {
-  console.log("Fired send_request.");
-
-  resp = jQuery.ajax({
-      type: method,
-      url: url,
-      cache: false,
-      dataType: "application/json",
-      data: JSON.stringify(data)
-    });
-
-}
-
 // run!
 $(document).ready(function() {
-  // get all dialing info
-  get_all_dialings_init();
-
   // add all dialing list
   dialing_list_columns = [
-    { id: "uuid", title: "Uuid"},
-    { id: "name", title: "Name" },
-    { id: "detail", title: "Description" },
-    { id: "dl_table", title: "Dial list table" }
+    { id: "uuid", data: "uuid", title: "Uuid"},
+    { id: "name", data: "name", title: "Name" },
+    { id: "detail", data: "detail", title: "Description" },
+    { id: "dl_table", data: "dl_table", title: "Dial list table" }
   ];
-  add_table("dialing_list_table", g_dialings, dialing_list_columns, update_dialing_detail);
+
+  table_create("dialing_list_table", dialing_list_columns, update_dialing_detail);
+  table_update("dialing_list_table", g_ob_dialings);
 
   console.log('ob_dialing.js');
 });

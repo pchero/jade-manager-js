@@ -1,8 +1,7 @@
-var g_dls = TAFFY();
 
-function init_g_dls() {
-  delete g_dls;
-  g_dls = TAFFY();
+function init_g_ob_dls() {
+  delete g_ob_dls;
+  g_ob_dls = TAFFY();
 }
 
 /**
@@ -12,15 +11,18 @@ function init_g_dls() {
 function get_dial_list(dlma_uuid, count) {
   console.log("Fired get_dial_list. " + dlma_uuid + ", " + count);
 
-  url = domain + "/ob/dls/";
+  url = domain + "/ob/dls" + "?dlma_uuid=" + dlma_uuid + "&count=" + count;
   console.log("Query url info. url[" + url + "]");
 
   // init dial list db.
-  init_g_dls();
+  init_g_ob_dls();
 
   // send request
   data = {"dlma_uuid": dlma_uuid, "count": count};
   tmp_res = send_request(url, "GET", data, false);
+  if(tmp_res == null) {
+    return;
+  }
 
   // parsing data
   res = JSON.parse(tmp_res);
@@ -29,7 +31,7 @@ function get_dial_list(dlma_uuid, count) {
 
   // insert/update data
   for(var i = 0; i < res.result.list.length; i++) {
-    g_dls.insert(res.result.list[i]);
+    g_ob_dls.insert(res.result.list[i]);
   }
 }
 
@@ -53,7 +55,7 @@ function update_dl_detail(uuid) {
   console.log("Fired update_dl_detail. " + uuid);
 
   // get data
-  data = g_dls({uuid: uuid}).first();
+  data = g_ob_dls({uuid: uuid}).first();
 
   // set basic info
   document.getElementById("dl_detail_uuid").value = data.uuid;
@@ -128,13 +130,13 @@ function update_table_dl_list() {
   console.log("Fired update_table_dl_list.");
 
   // update
-  table_update("dl_list_table", g_dls);
+  table_update("dl_list_table", g_ob_dls);
 }
 
 function update_table_dlma_list() {
   console.log("Fired update_table_dlma_list.");
 
-  table_update("dlma_list_table", g_dlmas);
+  table_update("dlma_list_table", g_ob_dlmas);
 }
 
 /**
@@ -170,7 +172,7 @@ function create_table_dl_list() {
   ];
   table_create("dl_list_table", dl_list_columns, dl_list_table_double_click);
 
-  // add_table("dl_list_table", g_dls, dl_list_columns, update_dl_detail);
+  // add_table("dl_list_table", g_ob_dls, dl_list_columns, update_dl_detail);
 }
 
 function get_dl_detail_from_form() {
@@ -335,8 +337,6 @@ function send_delete_dl_request(data) {
 
 // run!
 $(document).ready(function() {
-
-  get_all_dlmas_init();
 
   // create tables
   create_table_dlma_list();

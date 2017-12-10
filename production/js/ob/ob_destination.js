@@ -58,7 +58,7 @@ function update_destination_detail(uuid) {
   console.log("Fired update_destination_detail. " + uuid);
 
   // get data
-  data = g_destinations({uuid: uuid}).first();
+  data = g_ob_destinations({uuid: uuid}).first();
 
   // set basic info
   document.getElementById("destination_detail_uuid").value = data.uuid;
@@ -208,41 +208,28 @@ function send_delete_destination_request(data) {
   send_request(url, "DELETE", data);
 }
 
+function destination_list_table_double_click(row) {
+  console.log("Fired destination_list_table_double_click.");
 
-/**
- * Send request
- * @param  {[type]} url    [description]
- * @param  {[type]} method [description]
- * @param  {[type]} data   [description]
- * @return {[type]}        [description]
- */
-function send_request(url, method, data) {
-  console.log("Fired send_request.");
+  message_id = row.cells.item(0).innerText;
 
-  resp = jQuery.ajax({
-      type: method,
-      url: url,
-      cache: false,
-      dataType: "application/json",
-      data: JSON.stringify(data)
-    });
-
+  update_destination_detail(message_id);
 }
+
 
 // run!
 $(document).ready(function() {
-
-  // get all destination info
-  get_all_destinations_init();
   
   // add all destination list
   destination_list_columns = [
-    { id: "uuid", title: "Uuid"},
-    { id: "name", title: "Name" },
-    { id: "detail", title: "Description" },
-    { id: "type", title: "Type" }
+    { id: "uuid", data: "uuid", title: "Uuid"},
+    { id: "name", data: "name", title: "Name" },
+    { id: "detail", data: "detail", title: "Description" },
+    { id: "type", data: "type", title: "Type" }
   ];
-  add_table("destination_list_table", g_destinations, destination_list_columns, update_destination_detail);
+
+  table_create("destination_list_table", destination_list_columns, destination_list_table_double_click);
+  table_update("destination_list_table", g_ob_destinations);
 
   console.log('ob_destination.js');
 });

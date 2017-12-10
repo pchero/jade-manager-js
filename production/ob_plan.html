@@ -1,371 +1,268 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script src="js/common/head.js"></script>
-  </head>
-    
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-
-        <!-- side bar -->
-        <script src="js/common/side_bar.js"></script>
-
-        <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
-            </nav>
-          </div>
-        </div>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-
-          <!-- show all list of plans -->
-          <div class="row">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Plan list info <small>Show the list of all plans.</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <table id="plan_list_table" class="table table-striped table-bordered table-condensed"></table>
-              </div>
-            </div>
-          </div>
-
-          <!-- Show detail plan info -->
-          <div class="row">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Plan detail info <small>Show the specified plan's detail info.</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-
-              <div class="x_content">
-                <div class="col-xs-6">
-                  <!-- <p class="lead" align="center">Basic info</p> -->
-                  <form class="form-horizontal form-label-left">
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_uuid">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Name</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_name">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_description">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Tech name</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_tech_name">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Trunk name</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_trunk_name">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial mode</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_dial_mode">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial timeout</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_dial_timeout">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial list end handle</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_dl_end_handle">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Caller id</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_caller_id">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Service level</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_service_level">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Early media</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_early_media">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Codecs</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_codecs">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Variables</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_variables">
-                      </div>
-                    </div>
 
 
+<!-- show all list of plans -->
+<div class="row">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Plan list info <small>Show the list of all plans.</small></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Settings 1</a>
+            </li>
+            <li><a href="#">Settings 2</a>
+            </li>
+          </ul>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <table id="plan_list_table" class="table table-striped table-bordered table-condensed"></table>
+    </div>
+  </div>
+</div>
 
-                  </form>
-                </div>
-
-                <div class="col-xs-6">
-                  <!-- <p class="lead" align="center">Other info</p> -->
-
-                  <form class="form-horizontal form-label-left">
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Retry delay</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_retry_delay">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 1</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_1">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 2</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_2">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 3</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_3">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 4</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_4">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 5</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_5">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 6</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_6">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 7</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_7">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 8</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_8">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">In use</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_in_use">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Time create</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_tm_create">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Time update</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_tm_update">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Time delete</label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_tm_delete">
-                      </div>
-                    </div>
-
-                  </form>
-
-                </div>
-
-              </div> <!-- <div class="x_content"> -->
-
-              <div align="right">
-                <button type="button" id="campaign_detail_button_create" onclick="bt_create_plan_detail()" class="btn btn-primary btn-lg">Create</button>
-                <button type="button" id="campaign_detail_button_update" onclick="bt_update_plan_detail()" class="btn btn-success btn-lg">Update</button>
-                <button type="button" id="campaign_detail_button_delete" onclick="bt_delete_plan_detail()" class="btn btn-danger btn-lg">Delete</button>
-              </div>
-
-            </div>
-          </div> <!-- row -->
-
-        </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Jade - Asterisk based call center solution.
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
+<!-- Show detail plan info -->
+<div class="row">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Plan detail info <small>Show the specified plan's detail info.</small></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Settings 1</a>
+            </li>
+            <li><a href="#">Settings 2</a>
+            </li>
+          </ul>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
     </div>
 
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <div class="x_content">
+      <div class="col-xs-6">
+        <!-- <p class="lead" align="center">Basic info</p> -->
+        <form class="form-horizontal form-label-left">
 
-    <!-- Datatables -->
-    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">UUID</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_uuid">
+            </div>
+          </div>
 
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Name</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_name">
+            </div>
+          </div>
 
-    <!-- -->
-    <script src="./js/menu/side_bar.js"></script>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_description">
+            </div>
+          </div>
 
-    <!-- -->
-    <script src="./js/ob/ob_plan.js"></script>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Tech name</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_tech_name">
+            </div>
+          </div>
 
-  </body>
-</html>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Trunk name</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_trunk_name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial mode</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_dial_mode">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial timeout</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_dial_timeout">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Dial list end handle</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_dl_end_handle">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Caller id</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_caller_id">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Service level</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_service_level">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Early media</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_early_media">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Codecs</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_codecs">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Variables</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_variables">
+            </div>
+          </div>
+
+
+
+        </form>
+      </div>
+
+      <div class="col-xs-6">
+        <!-- <p class="lead" align="center">Other info</p> -->
+
+        <form class="form-horizontal form-label-left">
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Retry delay</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_retry_delay">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 1</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_1">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 2</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_2">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 3</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_3">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 4</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_4">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 5</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_5">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 6</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_6">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 7</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_7">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Max retry count 8</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" placeholder="" id="plan_detail_max_retry_count_8">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">In use</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_in_use">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Time create</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_tm_create">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Time update</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_tm_update">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Time delete</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" readonly="readonly" placeholder="" id="plan_detail_tm_delete">
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div> <!-- <div class="x_content"> -->
+
+    <div align="right">
+      <button type="button" id="campaign_detail_button_create" onclick="bt_create_plan_detail()" class="btn btn-primary btn-lg">Create</button>
+      <button type="button" id="campaign_detail_button_update" onclick="bt_update_plan_detail()" class="btn btn-success btn-lg">Update</button>
+      <button type="button" id="campaign_detail_button_delete" onclick="bt_delete_plan_detail()" class="btn btn-danger btn-lg">Delete</button>
+    </div>
+
+  </div>
+</div> <!-- row -->
+
+
+<!-- -->
+<script src="./js/ob/ob_plan.js"></script>

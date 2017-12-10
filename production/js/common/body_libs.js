@@ -57,7 +57,4 @@ document.write('\
     <!-- Custom Theme Scripts -->\
     <script src="../build/js/custom.min.js"></script>\
 \
-    <!-- Custom libs -->\
-    <script src="../production/js/common/data_handler.js"></script>\
-\
 ')

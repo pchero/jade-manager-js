@@ -59,7 +59,7 @@ function update_dlma_detail(uuid) {
   console.log("Fired update_dlma_detail. " + uuid);
 
   // get data
-  data = g_dlmas({uuid: uuid}).first();
+  data = g_ob_dlmas({uuid: uuid}).first();
 
   // set basic info
   document.getElementById("dlma_detail_uuid").value = data.uuid;
@@ -200,40 +200,28 @@ function send_delete_dlma_request(data) {
 }
 
 
-/**
- * Send request
- * @param  {[type]} url    [description]
- * @param  {[type]} method [description]
- * @param  {[type]} data   [description]
- * @return {[type]}        [description]
- */
-function send_request(url, method, data) {
-  console.log("Fired send_request.");
+function dlma_list_table_double_click(row) {
+  console.log("Fired dlma_list_table_double_click.");
 
-  resp = jQuery.ajax({
-      type: method,
-      url: url,
-      cache: false,
-      dataType: "application/json",
-      data: JSON.stringify(data)
-    });
+  message_id = row.cells.item(0).innerText;
 
+  update_dlma_detail(message_id);
 }
+
 
 // run!
 $(document).ready(function() {
 
-  // get all dlma data
-  get_all_dlmas_init();
-
   // add all dlma list
   dlma_list_columns = [
-    { id: "uuid", title: "Uuid"},
-    { id: "name", title: "Name" },
-    { id: "detail", title: "Description" },
-    { id: "dl_table", title: "Dial list table" }
+    { id: "uuid", data: "uuid", title: "Uuid"},
+    { id: "name", data: "name", title: "Name" },
+    { id: "detail", data: "detail", title: "Description" },
+    { id: "dl_table", data: "dl_table", title: "Dial list table" }
   ];
-  add_table("dlma_list_table", g_dlmas, dlma_list_columns, update_dlma_detail);
+
+  table_create("dlma_list_table", dlma_list_columns, dlma_list_table_double_click);
+  table_update("dlma_list_table", g_ob_dlmas);
 
   console.log('ob_dlma.js');
 });

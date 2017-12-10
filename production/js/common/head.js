@@ -37,5 +37,4 @@ document.write(' \
 \
 	<!-- outbound -->\
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/taffydb/2.7.3/taffy-min.js"></script>\
-	<script src=./js/ob/ob_get_data.js></script>\
 ')

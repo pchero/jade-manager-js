@@ -84,7 +84,7 @@ function update_campaign_detail(uuid) {
   console.log("Fired update_campaign_detail. " + uuid);
 
   // get data
-  campaign = g_campaigns({uuid: uuid}).first();
+  campaign = g_ob_campaigns({uuid: uuid}).first();
 
   // set campaign info
   document.getElementById("campaign_detail_uuid").value = campaign.uuid;
@@ -253,31 +253,8 @@ function send_delete_campaign_request(data) {
 }
 
 
-/**
- * Send request
- * @param  {[type]} url    [description]
- * @param  {[type]} method [description]
- * @param  {[type]} data   [description]
- * @return {[type]}        [description]
- */
-function send_request(url, method, data) {
-  console.log("Fired send_request.");
-
-  resp = jQuery.ajax({
-      type: method,
-      url: url,
-      cache: false,
-      dataType: "application/json",
-      data: JSON.stringify(data)
-    });
-
-}
-
 // run!
 $(document).ready(function() {
-
-  // get all campaign info
-  get_all_campaigns_init();
 
   // add all campaign list
   campaign_list_columns = [
@@ -286,7 +263,7 @@ $(document).ready(function() {
     { id: "detail", title: "Description" },
     { id: "status", title: "Status" }
   ];
-  add_table("campaign_list_table", g_campaigns, campaign_list_columns);
+  add_table("campaign_list_table", g_ob_campaigns, campaign_list_columns);
 
   console.log('ob_campaign.js');
 });

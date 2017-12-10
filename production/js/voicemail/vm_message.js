@@ -1,17 +1,15 @@
-var g_messages = TAFFY();
-var g_users = TAFFY();
 
 function init_db() {
-	delete g_messages;
-	g_messages = TAFFY();
+	delete g_vm_messages;
+	g_vm_messages = TAFFY();
 
-  delete g_users;
-  g_users = TAFFY();
+  delete g_vm_users;
+  g_vm_users = TAFFY();
 }
 
 function init_message() {
-  delete g_messages;
-  g_messages = TAFFY();
+  delete g_vm_messages;
+  g_vm_messages = TAFFY();
 }
 
 var g_cur_context = null;
@@ -31,13 +29,17 @@ function get_user_list() {
 
   tmp_res = send_request(url, "GET", null, false);
 
+  if(tmp_res == null) {
+    return;
+  }
+
   // parsing data
   res = JSON.parse(tmp_res);
   //console.log("Result. " + tmp_res);
 
   // insert/update data
   for(var i = 0; i < res.result.list.length; i++) {
-    g_users.insert(res.result.list[i]);
+    g_vm_users.insert(res.result.list[i]);
   }
 }
 
@@ -49,12 +51,10 @@ function get_user_list() {
 function get_message_list(context, mailbox) {
   console.log("Fired get_message_list.");
 
-  url = domain + "/voicemail/vms";
+  url = domain + "/voicemail/vms" + "?context=" + context + "&mailbox=" + mailbox;
   console.log("Query url info. " + url);
 
-  data = {"context":context, "mailbox":mailbox};
-
-  tmp_res = send_request(url, "GET", data, false);
+  tmp_res = send_request(url, "GET", null, false);
 
   // parsing data
   res = JSON.parse(tmp_res);
@@ -62,7 +62,7 @@ function get_message_list(context, mailbox) {
 
   // insert/update data
   for(var i = 0; i < res.result.list.length; i++) {
-  	g_messages.insert(res.result.list[i]);
+  	g_vm_messages.insert(res.result.list[i]);
   }
 
   g_cur_context = context;
@@ -73,14 +73,14 @@ function update_table_user_list() {
   console.log("Fired update_table_user_list.");
 
   // update
-  table_update("user_list_table", g_users);
+  table_update("user_list_table", g_vm_users);
 }
 
 function update_table_message_list() {
   console.log("Fired update_table_message_list.");
 
   // update
-  table_update("message_list_table", g_messages);
+  table_update("message_list_table", g_vm_messages);
 }
 
 
@@ -110,7 +110,7 @@ function message_list_table_double_click(row) {
 function update_message_detail(message_id) {
 	  console.log("Fired update_message_detail.")
 
-	  data = g_messages({msg_id: message_id}).first();
+	  data = g_vm_messages({msg_id: message_id}).first();
 
 	  // set basic info
     document.getElementById("message_detail_msgname").value = data.msgname;
@@ -182,7 +182,7 @@ function create_table_message_list() {
 function bt_download_message_detail() {
   console.log("Fired bt_download_message_detail.");
 
-  url = domain + "/voicemail/vms/" + g_cur_msgname + "?context=" + g_cur_context + "&mailbox=" + g_cur_mailbox + "&dir=" + g_cur_dir;
+  url = domain + "/voicemail/vms/" + g_cur_msgname;
   console.log("Query url info. " + url);
 
   data = {"context": g_cur_context, "mailbox": g_cur_mailbox, "dir": g_cur_dir}
@@ -211,7 +211,7 @@ $(document).ready(function() {
   	create_table_user_list();
     create_table_message_list();
 
-  	get_user_list()
+  	// get_user_list()
   	update_table_user_list();
 
   	console.log('vm_message.js');

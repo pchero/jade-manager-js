@@ -22,19 +22,19 @@ document.write('\
                 <ul class="nav side-menu">\
                   <li><a><i class="fa fa-phone"></i> OutBound <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
-                      <li><a href="ob_dialing.html">Dialing</a></li>\
-                      <li><a href="ob_campaign.html">Campaign</a></li>\
-                      <li><a href="ob_plan.html">Plan</a></li>\
-                      <li><a href="ob_destination.html">Destination</a></li>\
-                      <li><a href="ob_dlma.html">Dial list master</a></li>\
-                      <li><a href="ob_dial_list.html">Dial list</a></li>\
+                      <li><a id="ob_dialing">Dialing</a></li>\
+                      <li><a id="ob_campaign">Campaign</a></li>\
+                      <li><a id="ob_plan">Plan</a></li>\
+                      <li><a id="ob_destination">Destination</a></li>\
+                      <li><a id="ob_dlma">Dial list master</a></li>\
+                      <li><a id="ob_dial_list">Dial list</a></li>\
                     </ul>\
                   </li>\
 \
                   <li><a><i class="fa fa-music"></i> Voicemail <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
-                      <li><a href="vm_user.html">User</a></li>\
-                      <li><a href="vm_message.html">Message</a></li>\
+                      <li><a id="vm_user">User</a></li>\
+                      <li><a id="vm_message">Message</a></li>\
                     </ul>\
                   </li>\
 \
