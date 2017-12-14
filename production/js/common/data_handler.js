@@ -1,4 +1,7 @@
-const domain = "http://pchero21.com:8081";
+const domain = "http://localhost:8081";
+
+var g_core_channels = TAFFY();
+var g_core_systems = TAFFY();
 
 var g_ob_campaigns = TAFFY();
 var g_ob_destinations = TAFFY();
@@ -6,6 +9,12 @@ var g_ob_dialings = TAFFY();
 var g_ob_dlmas = TAFFY();
 var g_ob_dls = TAFFY();
 var g_ob_plans = TAFFY();
+
+var g_pjsip_aors = TAFFY();
+var g_pjsip_auths = TAFFY();
+var g_pjsip_contacts = TAFFY();
+var g_pjsip_endpoints = TAFFY();
+var g_pjsip_transports = TAFFY();
 
 var g_vm_messages = TAFFY();
 var g_vm_users = TAFFY();
@@ -19,6 +28,9 @@ function init_data() {
   console.log("Fired init_data.");
 
   targets = [
+    ["/core/channel", g_core_channels],
+    ["/core/systems", g_core_systems],
+
     ["/ob/campaigns", g_ob_campaigns],
     ["/ob/destinations", g_ob_destinations],
     ["/ob/dialings", g_ob_dialings],
@@ -26,8 +38,14 @@ function init_data() {
     ["/ob/dls", g_ob_dls],
     ["/ob/plans", g_ob_plans],
 
-    ["/voicemail/vms", g_vm_messages],
+    ["/pjsip/aors", g_pjsip_aors],
+    ["/pjsip/auths", g_pjsip_auths],
+    ["/pjsip/contacts", g_pjsip_contacts],
+    ["/pjsip/endpoints", g_pjsip_endpoints],
+    ["/pjsip/transports", g_pjsip_transports],
+
     ["/voicemail/users", g_vm_users],
+    ["/voicemail/vms", g_vm_messages],
   ];
 
   for(var i = 0; i < targets.length; i++) {
@@ -170,7 +188,9 @@ function table_create(id, columns, func_dblclick) {
     console.log("Selected row. " + this);
 
     // call the double function
-    func_dblclick(this);
+    if(func_dblclick != null) {
+      func_dblclick(this);
+    }
   });
 
   // add one click event
