@@ -33,7 +33,15 @@ document.write('\
 \
 \
                 <h3>Modules</h3>\
+  \
                 <ul class="nav side-menu">\
+\
+                  <li><a><i class="fa fa-music"></i> Agent <span class="fa fa-chevron-down"></span></a>\
+                    <ul class="nav child_menu">\
+                      <li><a id="agent_agent">Agent</a></li>\
+                    </ul>\
+                  </li>\
+\
                   <li><a><i class="fa fa-phone"></i> OutBound <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a id="ob_dialing">Dialing</a></li>\
@@ -47,8 +55,8 @@ document.write('\
 \
                   <li><a><i class="fa fa-music"></i> Park <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
-                      <li><a id="parking_lot">Parking lot</a></li>\
-                      <li><a id="parked_call">Parked call</a></li>\
+                      <li><a id="park_parkinglot">Parking lot</a></li>\
+                      <li><a id="park_parkedcall">Parked call</a></li>\
                     </ul>\
                   </li>\
 \
