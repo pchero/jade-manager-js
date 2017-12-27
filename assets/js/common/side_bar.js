@@ -19,9 +19,10 @@ document.write('\
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">\
               <div class="menu_section">\
 \
+\
                 <ul class="nav side-menu">\
 \
-                  <li><a><i class="fa fa-phone"></i> Core <span class="fa fa-chevron-down"></span></a>\
+                  <li><a><i class="fa fa-asterisk"></i> Core <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a id="core_system">System</a></li>\
                       <li><a id="core_channel">Channel</a></li>\
@@ -36,13 +37,13 @@ document.write('\
   \
                 <ul class="nav side-menu">\
 \
-                  <li><a><i class="fa fa-music"></i> Agent <span class="fa fa-chevron-down"></span></a>\
+                  <li><a><i class="fa fa-male"></i> Agent <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a id="agent_agent">Agent</a></li>\
                     </ul>\
                   </li>\
 \
-                  <li><a><i class="fa fa-phone"></i> OutBound <span class="fa fa-chevron-down"></span></a>\
+                  <li><a><i class="fa fa-bullhorn"></i> OutBound <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a id="ob_dialing">Dialing</a></li>\
                       <li><a id="ob_campaign">Campaign</a></li>\
@@ -53,14 +54,14 @@ document.write('\
                     </ul>\
                   </li>\
 \
-                  <li><a><i class="fa fa-music"></i> Park <span class="fa fa-chevron-down"></span></a>\
+                  <li><a><i class="fa fa-car"></i> Park <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a id="park_parkinglot">Parking lot</a></li>\
                       <li><a id="park_parkedcall">Parked call</a></li>\
                     </ul>\
                   </li>\
 \
-                  <li><a><i class="fa fa-music"></i> PJSip <span class="fa fa-chevron-down"></span></a>\
+                  <li><a><i class="fa fa-phone"></i> Phone-PJSip <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a id="pjsip_auth">Auth</a></li>\
                       <li><a id="pjsip_aor">AOR</a></li>\
@@ -70,7 +71,14 @@ document.write('\
                     </ul>\
                   </li>\
 \
-                  <li><a><i class="fa fa-music"></i> Queue <span class="fa fa-chevron-down"></span></a>\
+                  <li><a><i class="fa fa-phone"></i> Phone-SIP <span class="fa fa-chevron-down"></span></a>\
+                    <ul class="nav child_menu">\
+                      <li><a id="sip_peer">Peer</a></li>\
+                      <li><a id="sip_registry">Registry</a></li>\
+                    </ul>\
+                  </li>\
+\
+                  <li><a><i class="fa fa-sort-numeric-asc"></i> Queue <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a id="queue_entry">Entry</a></li>\
                       <li><a id="queue_member">Member</a></li>\
@@ -78,14 +86,7 @@ document.write('\
                     </ul>\
                   </li>\
 \
-                  <li><a><i class="fa fa-music"></i> SIP <span class="fa fa-chevron-down"></span></a>\
-                    <ul class="nav child_menu">\
-                      <li><a id="sip_peer">Peer</a></li>\
-                      <li><a id="sip_registry">Registry</a></li>\
-                    </ul>\
-                  </li>\
-\
-                  <li><a><i class="fa fa-music"></i> Voicemail <span class="fa fa-chevron-down"></span></a>\
+                  <li><a><i class="fa fa-envelope"></i> Voicemail <span class="fa fa-chevron-down"></span></a>\
                     <ul class="nav child_menu">\
                       <li><a id="vm_user">User</a></li>\
                       <li><a id="vm_message">Message</a></li>\
