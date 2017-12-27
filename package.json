@@ -1,0 +1,12 @@
+{
+  "name": "jade-manager",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "nodejs server.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "express-ws": "^3.0.0",
+    "zeromq": "latest"
+  }
+}
