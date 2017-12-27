@@ -41,7 +41,9 @@ function express_init() {
 
   app.use(express.static("assets"));
   app.use("/", router);
-  app.listen(3000, () => console.log("app listening on port 3000!"));
+  app.listen(3000, function() {
+    console.log("app listening on port 3000!")
+  });
 }
 
 /**
