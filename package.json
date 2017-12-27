@@ -7,6 +7,7 @@
   "dependencies": {
     "express": "latest",
     "express-ws": "^3.0.0",
-    "zeromq": "latest"
+    "zeromq": "latest",
+    "semver": "^4.3.2"
   }
 }
