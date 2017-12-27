@@ -8,6 +8,6 @@
     "express": "latest",
     "express-ws": "^3.0.0",
     "zeromq": "latest",
-    "semver": "^4.3.2"
+    "semver": "latest"
   }
 }
