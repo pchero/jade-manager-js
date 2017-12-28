@@ -12,5 +12,11 @@ $(document).ready(function() {
 
   table_update("list_table", g_queue_entries);
 
+  g_queue_entries.settings({
+    onDBChange:function () {
+      table_update("list_table", g_queue_entries); 
+    }
+  });
+
   console.log('entry.js');
 });

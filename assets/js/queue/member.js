@@ -14,5 +14,11 @@ $(document).ready(function() {
 
   table_update("list_table", g_queue_members);
 
+  g_queue_members.settings({
+    onDBChange:function () {
+      table_update("list_table", g_queue_members); 
+    }
+  });
+
   console.log('member.js');
 });

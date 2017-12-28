@@ -334,6 +334,7 @@ function websock_msg_handler(message) {
 
     console.log("Received key", key);
 
+    // core.channel
     if(key == "core.channel.create") {
       g_core_channels.insert(j_data[key]);
     }
@@ -343,5 +344,39 @@ function websock_msg_handler(message) {
     else if(key == "core.channel.delete") {
       g_core_channels({unique_id: j_data[key]["unique_id"]}).remove();
     }
+
+    //queue.entry
+    else if(key == "queue.entry.create") {
+      g_queue_entries.insert(j_data[key]);
+    }
+    else if(key == "queue.entry.update") {
+      g_queue_entries({unique_id: j_data[key]["unique_id"]}).update(j_data[key]);
+    }
+    else if(key == "queue.entry.delete") {
+      g_queue_entries({unique_id: j_data[key]["unique_id"]}).remove();
+    }
+
+    // queue.member
+    else if(key == "queue.member.create") {
+      g_queue_members.insert(j_data[key]);
+    }
+    else if(key == "queue.member.update") {
+      g_queue_members({unique_id: j_data[key]["id"]}).update(j_data[key]);
+    }
+    else if(key == "queue.member.delete") {
+      g_queue_members({unique_id: j_data[key]["id"]}).remove();
+    }
+
+    // queue.queue
+    else if(key == "queue.queue.create") {
+      g_queue_queues.insert(j_data[key]);
+    }
+    else if(key == "queue.queue.update") {
+      g_queue_queues({unique_id: j_data[key]["name"]}).update(j_data[key]);
+    }
+    else if(key == "queue.queue.delete") {
+      g_queue_queues({unique_id: j_data[key]["name"]}).remove();
+    }
+
   }
 }
