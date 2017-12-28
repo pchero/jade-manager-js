@@ -16,5 +16,11 @@ $(document).ready(function() {
 
   table_update("list_table", g_park_parkedcalls);
 
+  g_park_parkedcalls.settings({
+    onDBChange:function () {
+      table_update("list_table", g_park_parkedcalls); 
+    }
+  });
+
   console.log('parkedcall.js');
 });

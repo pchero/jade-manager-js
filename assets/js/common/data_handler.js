@@ -345,6 +345,19 @@ function websock_msg_handler(message) {
       g_core_channels({unique_id: j_data[key]["unique_id"]}).remove();
     }
 
+
+    //park.parkedcall
+    else if(key == "park.parkedcall.create") {
+      g_park_parkedcalls.insert(j_data[key]);
+    }
+    else if(key == "park.parkedcall.update") {
+      g_park_parkedcalls({parkee_unique_id: j_data[key]["parkee_unique_id"]}).update(j_data[key]);
+    }
+    else if(key == "park.parkedcall.delete") {
+      g_park_parkedcalls({parkee_unique_id: j_data[key]["parkee_unique_id"]}).remove();
+    }
+
+
     //queue.entry
     else if(key == "queue.entry.create") {
       g_queue_entries.insert(j_data[key]);
@@ -361,10 +374,10 @@ function websock_msg_handler(message) {
       g_queue_members.insert(j_data[key]);
     }
     else if(key == "queue.member.update") {
-      g_queue_members({unique_id: j_data[key]["id"]}).update(j_data[key]);
+      g_queue_members({id: j_data[key]["id"]}).update(j_data[key]);
     }
     else if(key == "queue.member.delete") {
-      g_queue_members({unique_id: j_data[key]["id"]}).remove();
+      g_queue_members({id: j_data[key]["id"]}).remove();
     }
 
     // queue.queue
@@ -372,10 +385,10 @@ function websock_msg_handler(message) {
       g_queue_queues.insert(j_data[key]);
     }
     else if(key == "queue.queue.update") {
-      g_queue_queues({unique_id: j_data[key]["name"]}).update(j_data[key]);
+      g_queue_queues({name: j_data[key]["name"]}).update(j_data[key]);
     }
     else if(key == "queue.queue.delete") {
-      g_queue_queues({unique_id: j_data[key]["name"]}).remove();
+      g_queue_queues({name: j_data[key]["name"]}).remove();
     }
 
   }

@@ -73,7 +73,7 @@ function zmq_init() {
  * @return {[type]}         [description]
  */
 function message_handler(topic, message) {
-  // console.log("Parsed message:", topic.toString(), message.toString());
+  console.log("Received message:", topic.toString(), message.toString());
 
   j_data = JSON.parse(message);
   var aWss = expressWs.getWss('/');
