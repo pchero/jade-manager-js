@@ -90,6 +90,8 @@ document.write('\
                     <ul class="nav child_menu">\
                       <li><a id="vm_user">User</a></li>\
                       <li><a id="vm_message">Message</a></li>\
+                      <li><a id="vm_setting">Setting</a></li>\
+                      <li><a id="vm_backup_settings">Backup settings</a></li>\
                     </ul>\
                   </li>\
 \

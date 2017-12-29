@@ -27,6 +27,7 @@ var g_queue_queues = TAFFY();
 
 var g_vm_messages = TAFFY();
 var g_vm_users = TAFFY();
+var g_vm_settings = TAFFY();
 
 /**
  * Get all data from jade.
@@ -68,6 +69,7 @@ function init_data() {
 
     ["/voicemail/users", g_vm_users],
     ["/voicemail/vms", g_vm_messages],
+    ["/voicemail/settings", g_vm_settings],
   ];
 
   for(var i = 0; i < targets.length; i++) {
@@ -254,11 +256,13 @@ function table_create(id, columns, func_dblclick) {
 
   // add double click event
   $('#' + id +' tbody').on('dblclick', 'tr', function () {
-    console.log("Selected row. " + this);
+    var data = table.row( this ).data();
+    console.log("Selected row. " + data);
 
     // call the double function
+    // 
     if(func_dblclick != null) {
-      func_dblclick(this);
+      func_dblclick(data);
     }
   });
 

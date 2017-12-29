@@ -1,0 +1,34 @@
+<!-- show detail -->
+<div class="row">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Current voicemail config list info <small>Show the detail of current voicemail configs.</small></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Settings 1</a>
+            </li>
+            <li><a href="#">Settings 2</a>
+            </li>
+          </ul>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <textarea id="list_detail" class="form-control" rows="50"></textarea>
+    </div>
+  </div>
+</div>
+
+<div align="right">
+  <button type="button" id="bt_update" onclick="bt_update_list_detail()" class="btn btn-success btn-lg">Update</button>
+</div>
+
+
+<script src="js/voicemail/setting.js"></script>
